@@ -2,6 +2,19 @@ def encode(password):
     encoded = ''.join(str((int(char) + 3) % 10) for char in password)
     return encoded
 
+
+def decode(password):
+    decoded = ''
+    for i in password:
+        new_i = (int(i) - 3) % 10
+        new_i = str(new_i)
+        decoded += new_i
+    return decoded
+
+
+
+
+
 def main():
     while True:
         print("Menu\n-------------")
@@ -15,8 +28,8 @@ def main():
             encoded_password = encode(password)
             print("Your password has been encoded and stored!")
         elif option == '2':
-            # Placeholder for decode
-            print("Decode functionality not implemented yet.")
+            print('The encoded password is ' + encoded_password + ', and the original password is ', end='')
+            print(decode(encoded_password) + '.')
         elif option == '3':
             break  # Exit
         else:
